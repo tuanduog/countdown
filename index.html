@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tuanduog</title>
+    <style>
+    
+        body {
+            background-color: #222; 
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; 
+        }
+        
+   
+        .overlay {
+            position: absolute;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 4vw;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+        .title {
+            font-size: 60px;
+            width: 90%;
+            left: 50%;
+            top: 15%;
+        }
+        .len {
+            width: 90%;
+            left: 50%;
+            top: 22%;
+        }
+        .xg {
+            left: 50%;
+            top: 34%;
+        }
+        .xg1 {
+            width: 90%;
+            left: 50%;
+            top: 46%;
+        }
+        .xg2 {
+        
+            width: 90%;
+            left: 50%;
+            bottom: 2%;
+        }
+        .end {
+            left: 50%;
+            top: 70%;
+        }
+        /* Animated text */
+        .animated-text {
+            animation: bounce 1s ease-in-out infinite, colorChange 2s ease-in-out infinite;
+        }
+
+        /* Bounce effect */
+        @keyframes bounce {
+            0%, 100% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+            50% {
+                transform: translate(-50%, calc(-50% - 20px)) scale(1.1);
+            }
+        }
+        @keyframes colorChange {
+            0% {
+                color: red; 
+            }
+            25% {
+                color: blue; 
+            }
+            50% {
+                color: green; 
+            }
+            75% {
+                color: yellow; 
+            }
+            100% {
+                color: white; 
+            }
+        }
+        
+
+
+        audio {
+            width: 100%; /* Make the audio player responsive */
+            max-width: 400px; /* Limit max width on large screens */
+        }
+
+        /* Media queries for smaller devices */
+        @media (max-width: 600px) {
+            .overlay {
+                font-size: 5vw; 
+            }
+
+           
+
+            audio {
+                max-width: 100%; 
+            }
+        }
+        .firework {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            opacity: 0;
+            animation: firework-animation 1s ease-out forwards;
+        }
+
+        @keyframes firework-animation {
+            0% {
+                opacity: 1;
+                transform: scale(1) translate(0, 0);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0) translate(var(--x), var(--y));
+            }
+        }
+
+
+        .firework-explosion {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            animation: explosion-animation 1s ease-out forwards;
+        }
+
+        @keyframes explosion-animation {
+            0% {
+                transform: scale(0);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(5);
+                opacity: 0;
+            }
+        }
+
+        audio {
+            width: 100%;
+            max-width: 400px;
+        }
+
+    
+        @media (max-width: 600px) {
+            .overlay {
+                font-size: 5vw; 
+            }
+            audio {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay animated-text title" >Đếm ngược đến năm 2025</div>
+    <h2 class="overlay len" id="current"></h2>
+    <h2 class="overlay xg" id="need"></h2>
+    <h2 class="overlay xg1" id="time"></h2>
+    <audio controls autoplay loop class="overlay end">
+        <source src="DiDeTroVe-SoobinHoangSon-4726882.mp3">
+    </audio>
+    <h3 class="overlay xg2">Vui lòng click vào màn hình ^^!!</h3>
+    <script src="count.js"></script> 
+</body>
+</html>
